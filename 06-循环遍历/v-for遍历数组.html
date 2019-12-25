@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.在遍历的过程中没有显示索引值-->
+  <ul>
+    <li v-for="e in names">{{e}}</li>
+  </ul>
+  <ul >
+    <li v-for="(e,index) in names">{{index+1}}.{{e}}</li>
+  </ul>
+</div>
+<script src="../vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      names:['why','what','where','which']
+    }
+})
+</script>
+
+</body>
+</html>

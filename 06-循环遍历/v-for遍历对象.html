@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.在遍历对象的时候，如果只是获取一个值，那个获取到的只是value-->
+  <ul v-for="item in message">{{item}}</ul>
+<!--2.获取key和value-->
+  <ul v-for="(value,key) in message">{{key}}:{{value}}</ul>
+<!--  3.获取key和value 格式：（value,key,index）-->
+  <ul v-for="(value,key,index) in message">{{index}}--{{key}}--{{value}}</ul>
+</div>
+
+<script src="../vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:{
+        name:'kobe',
+        age:42,
+        height:1.97
+      }
+    }
+})
+</script>
+
+</body>
+</html>

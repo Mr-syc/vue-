@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 1.filter函数的使用--取出100所有小于100的数字
+  // filter中的回调函数有一个要求：必须返回一个boolean值
+  // true:当返回true的时候，函数内部会自动将这次回调函数的n加入到新的数组中
+  // false:当返回到false的时候，函数内部会自动过滤掉这次n
+ const nums = [10,20,30,40,111,222,50,40]
+  let newNums = nums.filter(function (n) {
+    return n<100
+  })
+  console.log(newNums);
+
+  // 2.map函数的使用---将所有小于100的数字进行转化：全部*2
+  let newNums2=newNums.map(function (n) {
+    return n*2
+  })
+  console.log(newNums2);
+
+  //3.reduce函数的使用---将newNum2所有数字相加得到结果
+  //作用：对数组中的所有内容进行汇总
+  let total= newNums2.reduce(function (preValue,n) {
+    return preValue + n;
+  },0)
+  console.log(total);
+
+  // //reduce函数的第二个参数0是preValue的初始化值
+
+  const nums1 = [10,20,30,40,111,222,50,40];
+  //函数式编程
+  let sum = nums1.filter(n => n<100).map(n => n*2).reduce((pre,n) => pre+n);
+  console.log(sum);
+  let sum1 = nums1.filter(function (n) {
+    return n<100
+  }).map(function (n) {
+    return n*2
+  }).reduce(function (preValue,n) {
+    return preValue+n;
+  },0);
+  console.log(sum1);
+</script>
+</body>
+</html>

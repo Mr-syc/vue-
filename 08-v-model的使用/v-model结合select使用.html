@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.选择一个-->
+<!--  <select name="abc"  v-model="fruit">-->
+<!--    <option value="苹果" >苹果</option>-->
+<!--    <option value="香蕉" >香蕉</option>-->
+<!--    <option value="葡萄" >葡萄</option>-->
+<!--    <option value="榴莲" >榴莲</option>-->
+<!--    <option value="樱桃" >樱桃</option>-->
+<!--    <option value="车厘子" >车厘子</option>-->
+<!--  </select>-->
+<!--  <h2>您选择的水果是:{{fruit}}</h2>-->
+
+<!--  2.选择多个-->
+  <select name="abcd" v-model="fruits" multiple>
+    <option value="苹果" >苹果</option>
+    <option value="香蕉" >香蕉</option>
+    <option value="葡萄" >葡萄</option>
+    <option value="榴莲" >榴莲</option>
+    <option value="樱桃" >樱桃</option>
+    <option value="车厘子" >车厘子</option>
+  </select>
+  <h2>您选择的水果是:{{fruits}}</h2>
+
+
+<!--  值绑定就是值不给写死，而是动态地进行绑定-->
+<!--  但是仔细阅读之后，发现很简单，就是动态的给value赋值而已：-->
+<!--  我们前面的value中的值，可以回头去看一下，都是在定义input的时候直接给定的。-->
+<!--  但是真实开发中，这些input的值可能是从网络获取或定义在data中的。-->
+<!--  所以我们可以通过v-bind:value动态的给value绑定值。-->
+<!--  这不就是v-bind吗？-->
+<!--  这不就是v-bind在input中的应用吗？搞的我看了很久，搞不清他想将什么。-->
+<!--  这里不再给出对应的代码，因为会用v-bind，就会值绑定的应用了。-->
+
+  <label v-for="item in originHobbies" :for="item">
+    <input type="checkbox" :value="item" :id='item' v-model="hobbies">{{item}}
+  </label>
+  <h2>您的爱好是:{{hobbies}}</h2>
+</div>
+<script src="../vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      fruit:'苹果',
+      fruits:[],
+      hobbies:[],
+      originHobbies:['篮球','足球','排球','羽毛球','高尔夫球']
+    }
+})
+</script>
+
+</body>
+</html>

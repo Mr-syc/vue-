@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2 v-once>{{message}}</h2>
+<!-- v-once是当message的值改变的时候，被v-once修饰的message不会发生改变-->
+</div>
+
+<script src="../vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊'
+    }
+})
+</script>
+
+
+</body>
+</html>

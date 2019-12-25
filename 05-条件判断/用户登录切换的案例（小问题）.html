@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <span v-if="isUser">
+    <label for="username">用户账号</label>
+    <input key="abc" type="text" id="username" placeholder="用户账号">
+  </span>
+  <span v-else>
+    <label for="email">用户邮箱</label>
+    <input key='bcd' type="text" id="email" placeholder="用户邮箱">
+  </span>
+  <button @click="btnClick">切换类型</button>
+</div>
+<script src="../vue.js">
+</script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data: {
+      isUser: true
+    },
+    methods:{
+      btnClick(){
+        this.isUser = !this.isUser;
+      }
+    }
+})
+</script>
+<!--小问题-->
+<!--1.如果我们有输入内容的情况下，切换了类型，我们会发现文字依然显示在之前的输入的内容中-->
+<!--2.按道理来讲，我们应该切换到另一个input元素当中-->
+<!--3.在另一个input的元素当中，我们并没有输入内容-->
+<!--4.为什么会出现这一个问题-->
+
+<!--问题解答-->
+<!--1.这是因为Vue在进行DOM渲染的时候，处于性能的考虑，会尽可能的使用已经存在的元素，而不是重新创建新的元素-->
+<!--2.在上面的案例中，Vue内部会发现原来的input元素已经不再使用，直接为else中的input来使用-->
+
+<!--解决方案：-->
+<!--1.如果我们不希望Vue出现类似的问题，可以给对应的input增加key-->
+<!--2.而且我们需要保证key的不同-->
+
+</body>
+</html>
